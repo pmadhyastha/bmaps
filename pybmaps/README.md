@@ -3,8 +3,7 @@ BMAPS: Representation Learning
 
 BMAPS is a supervised task-specific learning library. 
 
-To install, please use the install.sh script. It is built on cython and numpy
-and uses https://github.com/rmcgibbo/logsumexp.
+To install, please use the install.sh script. It is built on cython and numpy.
 
 
 Example usage
