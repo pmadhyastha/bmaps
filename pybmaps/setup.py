@@ -3,9 +3,7 @@
 import Cython.Distutils
 from distutils.extension import Extension
 import distutils.core
-import sys
 import os
-from os.path import join as pjoin
 import numpy as np
 
 pwd = os.path.dirname(__file__)
@@ -24,5 +22,7 @@ distutils.core.setup(
         name='bmlib-0.1',
         cmdclass={'build_ext': Cython.Distutils.build_ext},
         packages=['bmlib'],
-        ext_modules=exts)
+        ext_modules=exts,
+        include_dirs=[np.get_include()]
+)
 
