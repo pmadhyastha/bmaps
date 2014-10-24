@@ -38,7 +38,7 @@ cdef class Fista:
 
     cpdef np.ndarray fista_l1(self, np.ndarray ytemp):
 
-        return np.multiply(np.sign(ytemp), np.max(ytemp -self.nu, 0))
+        return np.multiply(np.sign(ytemp), np.max(np.abs(ytemp) -self.nu, 0))
 
     cpdef fista_l2(self, np.ndarray ytemp):
 
@@ -99,7 +99,7 @@ cdef class Fobos:
 
     cpdef np.ndarray fobos_l1(self, np.ndarray w_k1):
         cdef double nu = self.lr * self.tau
-        return np.multiply(np.sign(w_k1), np.max(w_k1 - nu, 0))
+        return np.multiply(np.sign(w_k1), np.max(np.abs(w_k1) - nu, 0))
 
     cpdef fobos_l2(self, np.ndarray w_k1):
         cdef double nu = self.lr * self.tau
